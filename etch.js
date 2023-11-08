@@ -2,9 +2,9 @@ const gridContainer = document.querySelector('.gridContainer');
 const button = document.querySelector('.button')
 
 
-let girdSize = 16
 function gridCreator(girdSize) {
     // let girdSize = 16;
+    gridContainer.innerHTML = '';
     let grid = document.createElement('div');
     grid.className = 'grid';
     for (let i = 0; i < girdSize; ++i) {
@@ -20,7 +20,7 @@ function gridCreator(girdSize) {
     }
     gridContainer.appendChild(grid);
 }
-let showTheGrid = gridCreator(16)
+gridCreator(16)
 
 // const colorchanger = document.getElementsByClassName('cell');
 // console.log(colorchanger)
@@ -39,8 +39,11 @@ button.addEventListener('click', () => {
     let getValue = prompt("Choose new number of squares for your board. It shouldn't be bigger than 100.")
     let valueAsNumber = parseFloat(getValue)
     // console.log(changeToNumber)
-    if(valueAsNumber <= 100 ){
+    if (valueAsNumber <= 100) {
         let girdSize = valueAsNumber
         gridCreator(girdSize)
-    } 
+    }
+    else {
+        alert("Too big number, try again!")
+    }
 })
