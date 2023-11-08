@@ -1,6 +1,10 @@
 const gridContainer = document.querySelector('.gridContainer');
 const button = document.querySelector('.button')
 
+const randColor = () =>  {
+    return "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+}
+
 
 function gridCreator(girdSize) {
     // let girdSize = 16;
@@ -22,14 +26,12 @@ function gridCreator(girdSize) {
 }
 gridCreator(16)
 
-// const colorchanger = document.getElementsByClassName('cell');
-// console.log(colorchanger)
 gridContainer.addEventListener(
     "mouseover",
     (event) => {
         // highlight the mouseover target
         if (event.target.className === "cell")
-            event.target.style.backgroundColor = "orange";
+            event.target.style.backgroundColor = randColor();
     },
     false,
 );
